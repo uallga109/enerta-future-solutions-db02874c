@@ -1,21 +1,44 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import ClientCards from "@/components/service/ClientCards";
+import FlipCards from "@/components/service/FlipCards";
+import FeaturesCarousel from "@/components/service/FeaturesCarousel";
+import WorkProcess from "@/components/service/WorkProcess";
+import Benefits from "@/components/service/Benefits";
+import HiringProcess from "@/components/service/HiringProcess";
+
 interface ServicePageProps {
   title: string;
   subtitle: string;
   description: string;
   heroImage: string;
   icon: ReactNode;
-  features: string[];
-  subservices: {
+  features: {
     title: string;
     description: string;
   }[];
-  clients: string[];
+  subservices: {
+    title: string;
+    description: string;
+    image?: string;
+  }[];
+  clients: {
+    name: string;
+    icon: string;
+  }[];
+  workProcess: {
+    title: string;
+    description: string;
+  }[];
+  benefits: {
+    title: string;
+    description: string;
+  }[];
 }
+
 const ServicePage = ({
   title,
   subtitle,
@@ -24,9 +47,12 @@ const ServicePage = ({
   icon,
   features,
   subservices,
-  clients
+  clients,
+  workProcess,
+  benefits,
 }: ServicePageProps) => {
-  return <Layout>
+  return (
+    <Layout>
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -36,8 +62,6 @@ const ServicePage = ({
         
         <div className="enerta-container relative z-10">
           <div className="max-w-3xl animate-slide-up">
-            
-            
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-6">
               {title}
             </h1>
@@ -54,76 +78,25 @@ const ServicePage = ({
         </div>
       </section>
 
-      {/* Features */}
-      <section className="enerta-section bg-secondary/30">
-        <div className="enerta-container">
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center">
-            Lo que incluye este servicio
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {features.map(feature => <div key={feature} className="flex items-start gap-3 bg-card p-4 rounded-xl border border-border">
-                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">{feature}</span>
-              </div>)}
-          </div>
-        </div>
-      </section>
+      {/* Para quién es */}
+      <ClientCards clients={clients} />
 
-      {/* Subservices */}
-      <section className="enerta-section">
-        <div className="enerta-container">
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-12 text-center">
-            Servicios específicos
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {subservices.map((sub, index) => <div key={index} className="enerta-card">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <span className="font-heading font-bold text-primary">{index + 1}</span>
-                </div>
-                <h3 className="font-heading text-lg font-semibold text-foreground mb-2">
-                  {sub.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {sub.description}
-                </p>
-              </div>)}
-          </div>
-        </div>
-      </section>
+      {/* Servicios específicos */}
+      <FlipCards subservices={subservices} />
 
-      {/* Target Clients */}
-      <section className="enerta-section bg-accent/50">
-        <div className="enerta-container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6">
-              ¿Para quién es este servicio?
-            </h2>
-            <div className="flex flex-wrap justify-center gap-3">
-              {clients.map(client => <span key={client} className="px-4 py-2 rounded-full bg-card border border-border text-foreground font-medium">
-                  {client}
-                </span>)}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Lo que incluye */}
+      <FeaturesCarousel features={features} />
 
-      {/* CTA */}
-      <section className="enerta-section bg-primary">
-        <div className="enerta-container text-center">
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold text-primary-foreground mb-4">
-            ¿Necesitas este servicio?
-          </h2>
-          <p className="text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-            Cuéntanos tu proyecto y te enviamos un presupuesto personalizado sin compromiso.
-          </p>
-          <Link to="/contacto">
-            <Button size="lg" variant="secondary" className="font-semibold">
-              Contactar ahora
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </Link>
-        </div>
-      </section>
-    </Layout>;
+      {/* Proceso de trabajo */}
+      <WorkProcess steps={workProcess} />
+
+      {/* Beneficios */}
+      <Benefits benefits={benefits} />
+
+      {/* Proceso de contratación */}
+      <HiringProcess />
+    </Layout>
+  );
 };
+
 export default ServicePage;
