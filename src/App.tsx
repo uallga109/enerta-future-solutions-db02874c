@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import QuienesSomos from "./pages/QuienesSomos";
+import Partners from "./pages/Partners";
 import PreguntasFrecuentes from "./pages/PreguntasFrecuentes";
 import Contacto from "./pages/Contacto";
 import InstalacionesElectricas from "./pages/servicios/InstalacionesElectricas";
@@ -27,6 +28,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/quienes-somos" element={<QuienesSomos />} />
+          <Route path="/partners" element={<Partners />} />
           <Route path="/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/servicios/instalaciones-electricas" element={<InstalacionesElectricas />} />

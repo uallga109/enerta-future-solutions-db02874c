@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Sun, Car, Wind, BarChart3, CheckCircle, Shield, Award, Users, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import ImageCarousel from "@/components/ImageCarousel";
 import heroImage from "@/assets/hero-enerta.jpg";
 import serviceElectrical from "@/assets/service-electrical.jpg";
 import serviceSolar from "@/assets/service-solar.jpg";
 import serviceEv from "@/assets/service-ev.jpg";
 import serviceClimate from "@/assets/service-climate.jpg";
 import serviceEnergy from "@/assets/service-energy.jpg";
+
 const services = [{
   title: "Instalaciones Eléctricas",
   description: "Obra nueva, reformas y mantenimiento integral.",
@@ -39,6 +41,7 @@ const services = [{
   image: serviceEnergy,
   href: "/servicios/gestion-energetica"
 }];
+
 const reasons = [{
   icon: Shield,
   title: "Más de 15 años de experiencia",
@@ -56,9 +59,22 @@ const reasons = [{
   title: "Atención personalizada",
   description: "Consultoría energética y soluciones adaptadas a cada cliente y necesidad."
 }];
+
 const locations = ["Almería", "Roquetas de Mar", "El Ejido", "Vícar", "Vera", "Adra"];
+
+// Placeholder images for the carousel - will be replaced later
+const expertImages = [
+  serviceSolar,
+  serviceElectrical,
+  serviceEv,
+  serviceClimate,
+  serviceEnergy,
+  serviceSolar,
+];
+
 const Index = () => {
-  return <Layout>
+  return (
+    <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
@@ -94,11 +110,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Services Section - Horizontal rows */}
       <section className="enerta-section bg-secondary/30">
         <div className="enerta-container">
           <div className="text-center mb-16">
-            
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-4">
               Soluciones energéticas completas
             </h2>
@@ -108,32 +123,48 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => <div key={service.title} className="enerta-card group overflow-hidden" style={{
-            animationDelay: `${index * 100}ms`
-          }}>
-                <div className="relative h-48 -mx-6 -mt-6 mb-6 overflow-hidden">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <div className="w-12 h-12 rounded-xl bg-primary/90 flex items-center justify-center">
-                      <service.icon className="w-6 h-6 text-primary-foreground" />
-                    </div>
+          <div className="flex flex-col gap-4">
+            {services.map((service, index) => (
+              <Link 
+                key={service.title} 
+                to={service.href}
+                className="group"
+              >
+                <div 
+                  className="flex items-center gap-6 p-4 bg-card border border-border rounded-2xl hover:border-primary hover:shadow-lg transition-all duration-300"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  {/* Image */}
+                  <div className="hidden sm:block w-24 h-20 flex-shrink-0 overflow-hidden rounded-xl">
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                    />
+                  </div>
+                  
+                  {/* Icon */}
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <service.icon className="w-7 h-7 text-primary" />
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-heading text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm mt-1 line-clamp-1">
+                      {service.description}
+                    </p>
+                  </div>
+                  
+                  {/* Arrow */}
+                  <div className="flex-shrink-0">
+                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
                   </div>
                 </div>
-                <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {service.description}
-                </p>
-                <Link to={service.href}>
-                  <Button variant="ghost" className="group/btn p-0 h-auto font-medium text-primary hover:text-primary">
-                    Saber más
-                    <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </Button>
-                </Link>
-              </div>)}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -143,7 +174,6 @@ const Index = () => {
         <div className="enerta-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              
               <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-6">
                 Confía en expertos con experiencia real
               </h2>
@@ -153,7 +183,8 @@ const Index = () => {
                 integrales adaptadas a cada cliente.
               </p>
               <div className="space-y-6">
-                {reasons.map(reason => <div key={reason.title} className="flex gap-4">
+                {reasons.map(reason => (
+                  <div key={reason.title} className="flex gap-4">
                     <div className="w-12 h-12 rounded-xl bg-accent flex items-center justify-center flex-shrink-0">
                       <reason.icon className="w-6 h-6 text-primary" />
                     </div>
@@ -165,12 +196,13 @@ const Index = () => {
                         {reason.description}
                       </p>
                     </div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
             <div className="relative">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-accent rounded-3xl" />
-              <img src={serviceSolar} alt="Instalación profesional" className="relative rounded-2xl shadow-enerta-elevated w-full" />
+              <ImageCarousel images={expertImages} className="relative" />
             </div>
           </div>
         </div>
@@ -192,21 +224,39 @@ const Index = () => {
           </div>
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {locations.map(location => <div key={location} className="flex items-center gap-2 px-5 py-3 bg-card rounded-full border border-border shadow-sm">
+            {locations.map(location => (
+              <div key={location} className="flex items-center gap-2 px-5 py-3 bg-card rounded-full border border-border shadow-sm">
                 <MapPin className="w-4 h-4 text-primary" />
                 <span className="font-medium text-foreground">{location}</span>
-              </div>)}
+              </div>
+            ))}
             <div className="flex items-center gap-2 px-5 py-3 bg-primary/10 rounded-full border border-primary/20">
               <span className="font-medium text-primary">...y alrededores</span>
             </div>
           </div>
           
-          <p className="text-center text-muted-foreground">
+          {/* Google Maps Embed */}
+          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg border border-border">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d408958.3989661725!2d-2.4637136!3d36.8381!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1704900000000!5m2!1ses!2ses"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Mapa de Almería"
+              className="w-full"
+            />
+          </div>
+          
+          <p className="text-center text-muted-foreground mt-6">
             La cercanía nos permite ofrecer un trato cercano, respuesta rápida y seguimiento personalizado de cada proyecto.
           </p>
         </div>
       </section>
-
-    </Layout>;
+    </Layout>
+  );
 };
+
 export default Index;

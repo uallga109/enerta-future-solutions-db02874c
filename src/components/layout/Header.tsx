@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Zap, Sun, Car, Wind, BarChart3 } from "lucide-react";
+import { Menu, X, ChevronDown, Zap, Sun, Car, Wind, BarChart3, Users, Handshake } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -16,6 +16,11 @@ const services = [
   { name: "Puntos de Carga VE", href: "/servicios/puntos-carga-ve", icon: Car },
   { name: "Climatización", href: "/servicios/climatizacion", icon: Wind },
   { name: "Gestión Energética", href: "/servicios/gestion-energetica", icon: BarChart3 },
+];
+
+const aboutOptions = [
+  { name: "Presentación", href: "/quienes-somos", icon: Users },
+  { name: "Partners", href: "/partners", icon: Handshake },
 ];
 
 const Header = () => {
@@ -59,14 +64,25 @@ const Header = () => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link to="/quienes-somos">
-              <Button 
-                variant="ghost" 
-                className={`font-medium ${isActive("/quienes-somos") ? "bg-accent text-accent-foreground" : ""}`}
-              >
-                Quiénes Somos
-              </Button>
-            </Link>
+            {/* Quiénes Somos Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="flex items-center gap-1 font-medium">
+                  Quiénes Somos
+                  <ChevronDown className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-48">
+                {aboutOptions.map((option) => (
+                  <DropdownMenuItem key={option.href} asChild>
+                    <Link to={option.href} className="flex items-center gap-3 cursor-pointer">
+                      <option.icon className="w-4 h-4 text-primary" />
+                      <span>{option.name}</span>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <Link to="/preguntas-frecuentes">
               <Button 
@@ -116,13 +132,23 @@ const Header = () => {
               
               <div className="h-px bg-border my-2" />
               
-              <Link
-                to="/quienes-somos"
-                onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 rounded-lg hover:bg-accent transition-colors font-medium"
-              >
+              <p className="px-3 py-2 text-sm font-semibold text-muted-foreground uppercase tracking-wide">
                 Quiénes Somos
-              </Link>
+              </p>
+              {aboutOptions.map((option) => (
+                <Link
+                  key={option.href}
+                  to={option.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-accent transition-colors"
+                >
+                  <option.icon className="w-5 h-5 text-primary" />
+                  <span>{option.name}</span>
+                </Link>
+              ))}
+              
+              <div className="h-px bg-border my-2" />
+              
               <Link
                 to="/preguntas-frecuentes"
                 onClick={() => setMobileMenuOpen(false)}

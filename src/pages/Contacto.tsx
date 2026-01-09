@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import Layout from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
 
 const Contacto = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [acceptedPrivacy, setAcceptedPrivacy] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,6 +22,16 @@ const Contacto = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!acceptedPrivacy) {
+      toast({
+        title: "Error",
+        description: "Debes aceptar la política de privacidad para enviar el mensaje.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
     
     // Simulate form submission
@@ -31,6 +43,7 @@ const Contacto = () => {
     });
     
     setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+    setAcceptedPrivacy(false);
     setIsSubmitting(false);
   };
 
@@ -207,6 +220,21 @@ const Contacto = () => {
                     />
                   </div>
 
+                  {/* Privacy checkbox */}
+                  <div className="flex items-start space-x-3">
+                    <Checkbox
+                      id="privacy"
+                      checked={acceptedPrivacy}
+                      onCheckedChange={(checked) => setAcceptedPrivacy(checked === true)}
+                    />
+                    <label
+                      htmlFor="privacy"
+                      className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
+                    >
+                      He leído y acepto la <span className="text-primary hover:underline">política de privacidad</span> *
+                    </label>
+                  </div>
+
                   <Button type="submit" size="lg" className="w-full font-semibold" disabled={isSubmitting}>
                     {isSubmitting ? (
                       "Enviando..."
@@ -217,11 +245,30 @@ const Contacto = () => {
                       </>
                     )}
                   </Button>
-
-                  <p className="text-muted-foreground text-xs text-center">
-                    Al enviar este formulario, aceptas nuestra política de privacidad.
-                  </p>
                 </form>
+              </div>
+
+              {/* WhatsApp Section */}
+              <div className="mt-8 bg-primary/5 border border-primary/20 rounded-2xl p-6 text-center">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <MessageCircle className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-heading text-xl font-bold text-foreground mb-2">
+                  Atención directa y sin intermediarios
+                </h3>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Contacta con nuestro equipo por WhatsApp y recibe una primera orientación técnica sobre tu proyecto.
+                </p>
+                <a
+                  href="https://wa.me/34639089786?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="font-semibold">
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Contactar por WhatsApp
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

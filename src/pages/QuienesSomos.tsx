@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import { CheckCircle, Users, Shield, Award, Leaf, MapPin, Calendar, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import ImageCarousel from "@/components/ImageCarousel";
 import serviceSolar from "@/assets/service-solar.jpg";
+import serviceElectrical from "@/assets/service-electrical.jpg";
+import serviceEv from "@/assets/service-ev.jpg";
+import serviceClimate from "@/assets/service-climate.jpg";
+import serviceEnergy from "@/assets/service-energy.jpg";
 import heroImage from "@/assets/hero-enerta.jpg";
 
 const values = [
@@ -25,6 +30,16 @@ const timeline = [
   { year: "2015", title: "Expansión y crecimiento", description: "Ampliamos nuestra cartera de clientes y servicios en toda la provincia." },
   { year: "2020", title: "Nace Enerta Future", description: "Nos consolidamos como empresa especializada en energías renovables y movilidad eléctrica." },
   { year: "Hoy", title: "Referentes en Almería", description: "Más de 15 años de experiencia ofreciendo soluciones integrales." },
+];
+
+// Placeholder images for the carousel - will be replaced later
+const teamImages = [
+  serviceSolar,
+  serviceElectrical,
+  serviceEv,
+  serviceClimate,
+  serviceEnergy,
+  serviceSolar,
 ];
 
 const QuienesSomos = () => {
@@ -111,19 +126,15 @@ const QuienesSomos = () => {
         </div>
       </section>
 
-      {/* Team Section */}
+      {/* Team Section with Carousel */}
       <section className="enerta-section">
         <div className="enerta-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
+            <div className="relative order-2 lg:order-1">
               <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-accent rounded-3xl" />
-              <img
-                src={serviceSolar}
-                alt="Equipo profesional"
-                className="relative rounded-2xl shadow-enerta-elevated w-full"
-              />
+              <ImageCarousel images={teamImages} className="relative" />
             </div>
-            <div>
+            <div className="order-1 lg:order-2">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-6">
                 Nuestro equipo
               </h2>

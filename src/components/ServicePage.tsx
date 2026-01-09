@@ -33,6 +33,7 @@ interface ServicePageProps {
     title: string;
     description: string;
   }[];
+  workProcessImage?: string;
   benefits: {
     title: string;
     description: string;
@@ -49,6 +50,7 @@ const ServicePage = ({
   subservices,
   clients,
   workProcess,
+  workProcessImage,
   benefits,
 }: ServicePageProps) => {
   return (
@@ -88,7 +90,7 @@ const ServicePage = ({
       <FeaturesCarousel features={features} />
 
       {/* Proceso de trabajo */}
-      <WorkProcess steps={workProcess} />
+      <WorkProcess steps={workProcess} image={workProcessImage} />
 
       {/* Beneficios */}
       <Benefits benefits={benefits} />

@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { ChevronDown, ClipboardCheck, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 
 const faqs = [
@@ -175,6 +177,30 @@ const PreguntasFrecuentes = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Audit CTA */}
+      <section className="enerta-section bg-accent/50">
+        <div className="enerta-container">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+              <ClipboardCheck className="w-8 h-8 text-primary" />
+            </div>
+            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-4">
+              ¿Su proyecto tiene requisitos específicos?
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Si tienes necesidades particulares o un proyecto complejo, 
+              solicita una auditoría técnica personalizada.
+            </p>
+            <Link to="/contacto">
+              <Button size="lg" className="font-semibold">
+                Solicitar auditoría técnica
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
