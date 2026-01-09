@@ -10,13 +10,12 @@ const PuntosCargaVE = () => {
       description="Instalamos cargadores para vehículos eléctricos en viviendas, comunidades y negocios. Ofrecemos servicio completo: diseño, instalación, mantenimiento y gestión de ayudas del Plan MOVES."
       heroImage={heroEv}
       icon={<Car className="w-8 h-8 text-primary-foreground" />}
-      features={[
-        "Cargadores domésticos",
-        "Cargadores comunitarios",
-        "Cargadores rápidos",
-        "Gestión Plan MOVES",
-        "Mantenimiento incluido",
-        "Cumplimiento normativo",
+      clients={[
+        { name: "Propietarios de VE", icon: "car" },
+        { name: "Comunidades", icon: "building" },
+        { name: "Empresas con flotas", icon: "briefcase" },
+        { name: "Parkings privados", icon: "warehouse" },
+        { name: "Espacios públicos", icon: "landmark" },
       ]}
       subservices={[
         {
@@ -44,7 +43,54 @@ const PuntosCargaVE = () => {
           description: "Servicio de mantenimiento preventivo y correctivo de puntos de carga.",
         },
       ]}
-      clients={["Propietarios de VE", "Comunidades de vecinos", "Empresas con flotas", "Parkings privados", "Espacios públicos"]}
+      features={[
+        { title: "Cargadores domésticos", description: "Wallbox y puntos de carga para garaje particular" },
+        { title: "Cargadores comunitarios", description: "Soluciones multiusuario con gestión de pagos" },
+        { title: "Cargadores rápidos", description: "Alta potencia para carga en menos tiempo" },
+        { title: "Gestión Plan MOVES", description: "Tramitación de subvenciones incluida" },
+        { title: "Mantenimiento incluido", description: "Servicio preventivo y correctivo" },
+        { title: "Cumplimiento normativo", description: "Instalaciones certificadas y homologadas" },
+      ]}
+      workProcess={[
+        {
+          title: "Evaluación del punto",
+          description: "Análisis de ubicación, potencia disponible y tipo de cargador más adecuado.",
+        },
+        {
+          title: "Diseño personalizado",
+          description: "Selección del cargador óptimo y planificación detallada de la instalación.",
+        },
+        {
+          title: "Instalación y pruebas",
+          description: "Montaje profesional del cargador y comprobación de funcionamiento.",
+        },
+        {
+          title: "Mantenimiento y soporte",
+          description: "Servicio preventivo y correctivo para garantizar durabilidad y rendimiento.",
+        },
+      ]}
+      benefits={[
+        {
+          title: "Comodidad",
+          description: "Carga en casa, comunidad o empresa sin depender de cargadores públicos.",
+        },
+        {
+          title: "Rapidez",
+          description: "Instalación de cargadores domésticos o rápidos según tu necesidad.",
+        },
+        {
+          title: "Subvenciones",
+          description: "Tramitación del Plan MOVES incluida para maximizar tu ahorro.",
+        },
+        {
+          title: "Seguridad",
+          description: "Cumplimiento normativo total con sistemas certificados.",
+        },
+        {
+          title: "Escalabilidad",
+          description: "Soluciones adaptables para particulares, comunidades y flotas.",
+        },
+      ]}
     />
   );
 };

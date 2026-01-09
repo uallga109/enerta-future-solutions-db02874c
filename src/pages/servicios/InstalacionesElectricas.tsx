@@ -10,13 +10,12 @@ const InstalacionesElectricas = () => {
       description="Realizamos proyectos eléctricos completos para viviendas, locales comerciales y comunidades. Desde obra nueva hasta reformas y mantenimiento, garantizando seguridad y cumplimiento normativo en cada instalación."
       heroImage={heroElectrical}
       icon={<Zap className="w-8 h-8 text-primary-foreground" />}
-      features={[
-        "Cuadros eléctricos",
-        "Cableado completo",
-        "Iluminación interior y exterior",
-        "Enchufes y puntos de luz",
-        "Sistemas de protección",
-        "Certificaciones eléctricas",
+      clients={[
+        { name: "Particulares", icon: "home" },
+        { name: "Comunidades", icon: "building" },
+        { name: "Empresas", icon: "briefcase" },
+        { name: "Comercios", icon: "store" },
+        { name: "Industria", icon: "factory" },
       ]}
       subservices={[
         {
@@ -44,7 +43,54 @@ const InstalacionesElectricas = () => {
           description: "Sistemas de control y automatización para optimizar el uso de la energía eléctrica.",
         },
       ]}
-      clients={["Particulares", "Comunidades de vecinos", "Empresas", "Comercios", "Industria"]}
+      features={[
+        { title: "Cuadros eléctricos", description: "Diseño y montaje de cuadros de protección homologados" },
+        { title: "Cableado completo", description: "Instalación de cables de alta calidad y seguridad" },
+        { title: "Iluminación", description: "Interior y exterior con tecnología LED eficiente" },
+        { title: "Enchufes y puntos de luz", description: "Distribución óptima según necesidades" },
+        { title: "Sistemas de protección", description: "Diferenciales, magnetotérmicos y toma de tierra" },
+        { title: "Certificaciones", description: "Boletines y certificados eléctricos oficiales" },
+      ]}
+      workProcess={[
+        {
+          title: "Estudio inicial",
+          description: "Análisis de necesidades del cliente y estado de la instalación actual.",
+        },
+        {
+          title: "Diseño del proyecto",
+          description: "Planificación del cableado, cuadros y puntos de luz según normativa vigente.",
+        },
+        {
+          title: "Ejecución",
+          description: "Instalación completa por electricistas certificados con materiales de calidad.",
+        },
+        {
+          title: "Revisión y certificación",
+          description: "Pruebas de seguridad y emisión de certificados necesarios.",
+        },
+      ]}
+      benefits={[
+        {
+          title: "Seguridad total",
+          description: "Instalaciones que cumplen la normativa vigente con sistemas de protección avanzados.",
+        },
+        {
+          title: "Ahorro de tiempo",
+          description: "Proyecto integral desde obra nueva hasta reformas sin complicaciones.",
+        },
+        {
+          title: "Personalización",
+          description: "Diseño adaptado a cada vivienda, local o comunidad según sus necesidades.",
+        },
+        {
+          title: "Mantenimiento incluido",
+          description: "Revisiones periódicas y preventivas que prolongan la vida de la instalación.",
+        },
+        {
+          title: "Valor añadido",
+          description: "Cuadros eléctricos y sistemas inteligentes que aumentan la eficiencia y control.",
+        },
+      ]}
     />
   );
 };
