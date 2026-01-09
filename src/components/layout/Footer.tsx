@@ -104,13 +104,23 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-primary-foreground/50 text-sm">
-            © {new Date().getFullYear()} Enerta Future. Todos los derechos reservados.
-          </p>
-          <p className="text-primary-foreground/50 text-sm">
-            Empresa consolidada desde 2020 · +15 años de experiencia
-          </p>
+        <div className="border-t border-primary-foreground/10 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-primary-foreground/50 text-sm">
+              © {new Date().getFullYear()} Enerta Future. Todos los derechos reservados.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <Link to="/aviso-legal" className="text-primary-foreground/50 hover:text-primary transition-colors">
+                Aviso Legal
+              </Link>
+              <Link to="/politica-privacidad" className="text-primary-foreground/50 hover:text-primary transition-colors">
+                Política de Privacidad
+              </Link>
+              <Link to="/politica-cookies" className="text-primary-foreground/50 hover:text-primary transition-colors">
+                Cookies
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

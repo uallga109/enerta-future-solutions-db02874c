@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import Layout from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
+import serviceSolar from "@/assets/service-solar.jpg";
 
 const Contacto = () => {
   const { toast } = useToast();
@@ -53,17 +55,21 @@ const Contacto = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="enerta-section bg-secondary/30">
-        <div className="enerta-container">
+      {/* Hero with background image */}
+      <section className="relative enerta-section overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={serviceSolar} alt="Contacto Enerta Future" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-foreground/70" />
+        </div>
+        <div className="enerta-container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-4 backdrop-blur-sm">
               Estamos aquí para ayudarte
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-6">
               Contacto
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-primary-foreground/90">
               ¿Tienes un proyecto en mente? Cuéntanos qué necesitas y te asesoramos 
               sin compromiso. Estaremos encantados de ayudarte.
             </p>
@@ -231,7 +237,7 @@ const Contacto = () => {
                       htmlFor="privacy"
                       className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
                     >
-                      He leído y acepto la <span className="text-primary hover:underline">política de privacidad</span> *
+                      He leído y acepto la <Link to="/politica-privacidad" className="text-primary hover:underline">política de privacidad</Link> *
                     </label>
                   </div>
 

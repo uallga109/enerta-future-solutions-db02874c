@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Zap, Sun, Car, Wind, BarChart3, CheckCircle, Shield, Award, Users, MapPin } from "lucide-react";
+import { ArrowRight, Zap, Sun, Car, Wind, BarChart3, CheckCircle, Shield, Award, Users, MapPin, Rocket, TrendingDown, Headphones, Timer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
 import ImageCarousel from "@/components/ImageCarousel";
@@ -9,30 +9,34 @@ import serviceSolar from "@/assets/service-solar.jpg";
 import serviceEv from "@/assets/service-ev.jpg";
 import serviceClimate from "@/assets/service-climate.jpg";
 import serviceEnergy from "@/assets/service-energy.jpg";
+import heroElectrical from "@/assets/hero-electrical.jpg";
+import heroSolar from "@/assets/hero-solar.jpg";
+import heroEv from "@/assets/hero-ev.jpg";
+import heroClimate from "@/assets/hero-climate.jpg";
 
 const services = [{
   title: "Instalaciones Eléctricas",
   description: "Obra nueva, reformas y mantenimiento integral.",
   icon: Zap,
-  image: serviceElectrical,
+  image: heroElectrical,
   href: "/servicios/instalaciones-electricas"
 }, {
   title: "Energías Renovables / Fotovoltaica",
   description: "Paneles solares y baterías para ahorro energético.",
   icon: Sun,
-  image: serviceSolar,
+  image: heroSolar,
   href: "/servicios/energias-renovables"
 }, {
   title: "Puntos de Carga para Vehículos Eléctricos",
   description: "Instalación en hogares, empresas y comunidades.",
   icon: Car,
-  image: serviceEv,
+  image: heroEv,
   href: "/servicios/puntos-carga-ve"
 }, {
   title: "Climatización",
   description: "Aire acondicionado y calefacción eficiente.",
   icon: Wind,
-  image: serviceClimate,
+  image: heroClimate,
   href: "/servicios/climatizacion"
 }, {
   title: "Gestión Energética y Consultoría",
@@ -58,6 +62,24 @@ const reasons = [{
   icon: Users,
   title: "Atención personalizada",
   description: "Consultoría energética y soluciones adaptadas a cada cliente y necesidad."
+}];
+
+const whyChooseUs = [{
+  icon: Rocket,
+  title: "Proyectos escalables y adaptados a tus necesidades",
+  description: "Soluciones modulares que crecen con tu hogar, comunidad o empresa, anticipando las demandas futuras."
+}, {
+  icon: TrendingDown,
+  title: "Reducción de costes y optimización energética",
+  description: "Diseños eficientes y monitorización inteligente para minimizar gastos y aprovechar las tarifas más ventajosas."
+}, {
+  icon: Headphones,
+  title: "Disponibilidad y soporte continuo",
+  description: "Servicio técnico profesional con soporte post-instalación para mantener tus sistemas siempre operativos."
+}, {
+  icon: Timer,
+  title: "Implementación ágil y sin complicaciones",
+  description: "Gestión integral del proyecto que asegura instalaciones seguras y minimiza interrupciones en tu vida o negocio."
 }];
 
 const locations = ["Almería", "Roquetas de Mar", "El Ejido", "Vícar", "Vera", "Adra"];
@@ -110,7 +132,24 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section - Horizontal rows */}
+      {/* About Section */}
+      <section className="enerta-section">
+        <div className="enerta-container">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-6">
+              Expertos en Energía, Instalaciones Eléctricas y Movilidad Sostenible
+            </h2>
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+              En Enerta Future acompañamos a particulares, comunidades y empresas en el diseño, instalación y mantenimiento de instalaciones eléctricas, sistemas fotovoltaicos y puntos de recarga de vehículos eléctricos, así como en la optimización de su consumo energético. Actuamos como gestores energéticos y operadores técnicos, asegurando soluciones seguras, eficientes y adaptadas a cada proyecto.
+            </p>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Con sede en Almería y amplia experiencia en entornos residenciales, comerciales e industriales, ayudamos a reducir costes, mejorar la eficiencia y garantizar la disponibilidad y seguridad de las instalaciones eléctricas y energéticas en toda la provincia y en zonas de Granada, Málaga y Murcia. Nuestro objetivo: ofrecer energía sostenible, rentable y fiable para todos los clientes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section - Horizontal rows with background images */}
       <section className="enerta-section bg-secondary/30">
         <div className="enerta-container">
           <div className="text-center mb-16">
@@ -131,36 +170,40 @@ const Index = () => {
                 className="group"
               >
                 <div 
-                  className="flex items-center gap-6 p-4 bg-card border border-border rounded-2xl hover:border-primary hover:shadow-lg transition-all duration-300"
+                  className="relative flex items-center gap-6 p-6 rounded-2xl overflow-hidden min-h-[100px] hover:shadow-lg transition-all duration-300"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {/* Image */}
-                  <div className="hidden sm:block w-24 h-20 flex-shrink-0 overflow-hidden rounded-xl">
+                  {/* Background Image */}
+                  <div className="absolute inset-0">
                     <img 
                       src={service.image} 
                       alt={service.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                     />
-                  </div>
-                  
-                  {/* Icon */}
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-7 h-7 text-primary" />
+                    <div className="absolute inset-0 bg-foreground/70 group-hover:bg-foreground/60 transition-colors" />
                   </div>
                   
                   {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-heading text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm mt-1 line-clamp-1">
-                      {service.description}
-                    </p>
-                  </div>
-                  
-                  {/* Arrow */}
-                  <div className="flex-shrink-0">
-                    <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  <div className="relative z-10 flex items-center gap-6 w-full">
+                    {/* Icon */}
+                    <div className="w-14 h-14 rounded-xl bg-primary/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 group-hover:bg-primary/30 transition-colors">
+                      <service.icon className="w-7 h-7 text-primary-foreground" />
+                    </div>
+                    
+                    {/* Text */}
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-heading text-xl font-semibold text-primary-foreground group-hover:text-primary transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-primary-foreground/80 text-sm mt-1">
+                        {service.description}
+                      </p>
+                    </div>
+                    
+                    {/* Arrow */}
+                    <div className="flex-shrink-0">
+                      <ArrowRight className="w-6 h-6 text-primary-foreground/70 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                    </div>
                   </div>
                 </div>
               </Link>
@@ -253,6 +296,44 @@ const Index = () => {
           <p className="text-center text-muted-foreground mt-6">
             La cercanía nos permite ofrecer un trato cercano, respuesta rápida y seguimiento personalizado de cada proyecto.
           </p>
+        </div>
+      </section>
+
+      {/* Why Choose Enerta Future Section */}
+      <section className="relative enerta-section overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={heroSolar} alt="Instalación solar" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-foreground/80" />
+        </div>
+        
+        <div className="enerta-container relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">
+              ¿Por qué elegir Enerta Future?
+            </h2>
+            <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
+              Ventajas competitivas que marcan la diferencia en tu transición energética
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {whyChooseUs.map((item, index) => (
+              <div 
+                key={item.title}
+                className="bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-2xl p-6 hover:bg-primary-foreground/15 transition-colors"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center mb-4">
+                  <item.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-lg font-semibold text-primary-foreground mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-primary-foreground/70 text-sm">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </Layout>

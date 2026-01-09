@@ -9,6 +9,9 @@ import QuienesSomos from "./pages/QuienesSomos";
 import Partners from "./pages/Partners";
 import PreguntasFrecuentes from "./pages/PreguntasFrecuentes";
 import Contacto from "./pages/Contacto";
+import AvisoLegal from "./pages/AvisoLegal";
+import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
+import PoliticaCookies from "./pages/PoliticaCookies";
 import InstalacionesElectricas from "./pages/servicios/InstalacionesElectricas";
 import EnergiasRenovables from "./pages/servicios/EnergiasRenovables";
 import PuntosCargaVE from "./pages/servicios/PuntosCargaVE";
@@ -31,6 +34,9 @@ const App = () => (
           <Route path="/partners" element={<Partners />} />
           <Route path="/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/aviso-legal" element={<AvisoLegal />} />
+          <Route path="/politica-privacidad" element={<PoliticaPrivacidad />} />
+          <Route path="/politica-cookies" element={<PoliticaCookies />} />
           <Route path="/servicios/instalaciones-electricas" element={<InstalacionesElectricas />} />
           <Route path="/servicios/energias-renovables" element={<EnergiasRenovables />} />
           <Route path="/servicios/puntos-carga-ve" element={<PuntosCargaVE />} />

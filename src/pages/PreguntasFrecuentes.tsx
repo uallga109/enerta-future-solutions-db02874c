@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, ClipboardCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
+import serviceElectrical from "@/assets/service-electrical.jpg";
 
 const faqs = [
   {
@@ -118,17 +119,21 @@ const PreguntasFrecuentes = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="enerta-section bg-secondary/30">
-        <div className="enerta-container">
+      {/* Hero with background image */}
+      <section className="relative enerta-section overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={serviceElectrical} alt="Preguntas Frecuentes" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-foreground/70" />
+        </div>
+        <div className="enerta-container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-4 backdrop-blur-sm">
               Resolvemos tus dudas
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-primary-foreground mb-6">
               Preguntas Frecuentes
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-primary-foreground/90">
               Encuentra respuestas a las preguntas más habituales sobre nuestros servicios. 
               Si no encuentras lo que buscas, no dudes en contactarnos.
             </p>
