@@ -1,6 +1,7 @@
 import { BarChart3 } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
 import heroEnergy from "@/assets/hero-energy.jpg";
+import serviceEnergy from "@/assets/service-energy.jpg";
 
 const GestionEnergetica = () => {
   return (
@@ -69,6 +70,7 @@ const GestionEnergetica = () => {
           description: "Entrega de informes detallados y certificados energéticos oficiales.",
         },
       ]}
+      workProcessImage={heroEnergy}
       benefits={[
         {
           title: "Ahorro en factura",

@@ -30,7 +30,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 bg-card/95 backdrop-blur-md border-b border-border">
+    <header className="sticky top-0 z-50 bg-white border-b border-border">
       <nav className="enerta-container">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}

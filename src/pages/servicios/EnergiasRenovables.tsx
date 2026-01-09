@@ -1,6 +1,7 @@
 import { Sun } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
 import heroSolar from "@/assets/hero-solar.jpg";
+import serviceSolar from "@/assets/service-solar.jpg";
 
 const EnergiasRenovables = () => {
   return (
@@ -39,6 +40,7 @@ const EnergiasRenovables = () => {
         { title: "Instalación y puesta en marcha", description: "Montaje profesional, conexiones y pruebas de rendimiento." },
         { title: "Monitorización y seguimiento", description: "Sistemas de control en tiempo real y mantenimiento opcional." },
       ]}
+      workProcessImage={serviceSolar}
       benefits={[
         { title: "Reducción de factura", description: "Genera tu propia energía y reduce tus costes eléctricos." },
         { title: "Sostenibilidad", description: "Contribuye al medio ambiente disminuyendo tu huella de carbono." },

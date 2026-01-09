@@ -1,6 +1,7 @@
 import { Wind } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
 import heroClimate from "@/assets/hero-climate.jpg";
+import serviceClimate from "@/assets/service-climate.jpg";
 
 const Climatizacion = () => {
   return (
@@ -69,6 +70,7 @@ const Climatizacion = () => {
           description: "Revisiones periódicas y ajustes de programación para máximo rendimiento.",
         },
       ]}
+      workProcessImage={serviceClimate}
       benefits={[
         {
           title: "Confort óptimo",

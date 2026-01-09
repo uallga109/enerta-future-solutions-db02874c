@@ -1,6 +1,7 @@
 import { Zap } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
 import heroElectrical from "@/assets/hero-electrical.jpg";
+import serviceElectrical from "@/assets/service-electrical.jpg";
 
 const InstalacionesElectricas = () => {
   return (
@@ -69,6 +70,7 @@ const InstalacionesElectricas = () => {
           description: "Pruebas de seguridad y emisión de certificados necesarios.",
         },
       ]}
+      workProcessImage={serviceElectrical}
       benefits={[
         {
           title: "Seguridad total",

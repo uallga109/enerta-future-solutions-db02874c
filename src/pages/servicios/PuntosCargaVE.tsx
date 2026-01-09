@@ -1,6 +1,7 @@
 import { Car } from "lucide-react";
 import ServicePage from "@/components/ServicePage";
 import heroEv from "@/assets/hero-ev.jpg";
+import serviceEv from "@/assets/service-ev.jpg";
 
 const PuntosCargaVE = () => {
   return (
@@ -69,6 +70,7 @@ const PuntosCargaVE = () => {
           description: "Servicio preventivo y correctivo para garantizar durabilidad y rendimiento.",
         },
       ]}
+      workProcessImage={serviceEv}
       benefits={[
         {
           title: "Comodidad",
