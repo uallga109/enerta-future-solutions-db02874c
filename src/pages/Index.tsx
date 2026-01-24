@@ -149,6 +149,44 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Mejoradora Collaboration Section */}
+      <section className="enerta-section bg-gradient-to-br from-primary/5 to-accent/30 border-y border-primary/10">
+        <div className="enerta-container">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-6">
+              Colaboración estratégica
+            </div>
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mb-6">
+              Colaboración con Mejoradora Energía
+            </h2>
+            <div className="text-muted-foreground text-lg leading-relaxed space-y-4 mb-8">
+              <p>
+                En Enerta Future colaboramos con Mejoradora Energía, una comercializadora eléctrica que ofrece tarifas competitivas y transparentes para hogares y empresas.
+              </p>
+              <p>
+                Gracias a esta colaboración, si cambias tu compañía de luz a Mejoradora Energía, podrás acceder a ofertas exclusivas en los servicios de Enerta Future, como instalaciones eléctricas, fotovoltaica, puntos de carga para vehículos eléctricos o climatización.
+              </p>
+              <p>
+                Nuestro objetivo es doble: <strong className="text-foreground">ayudarte a pagar menos en tu factura eléctrica</strong> y ofrecerte soluciones energéticas completas, con un único equipo de confianza que te acompaña antes, durante y después.
+              </p>
+              <p>
+                Si estás pensando en optimizar tu consumo eléctrico o mejorar tus instalaciones, esta colaboración te permite hacerlo de forma más rentable, sencilla y segura.
+              </p>
+            </div>
+            <a 
+              href="https://www.mejoradora.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="font-semibold">
+                Conocer Mejoradora Energía
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Services Section - Horizontal rows with background images */}
       <section className="enerta-section bg-secondary/30">
         <div className="enerta-container">

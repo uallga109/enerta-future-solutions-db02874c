@@ -80,6 +80,34 @@ const ServicePage = ({
         </div>
       </section>
 
+      {/* Mejoradora Exclusive Offer */}
+      <section className="py-8 bg-gradient-to-r from-primary/5 via-accent/20 to-primary/5 border-b border-primary/10">
+        <div className="enerta-container">
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div className="flex-1">
+              <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
+                Ventaja exclusiva con Mejoradora
+              </h3>
+              <p className="text-muted-foreground">
+                Si cambias tu compañía de luz a Mejoradora, podrás acceder a ofertas especiales en este servicio de Enerta Future.
+                Una forma sencilla de ahorrar en tu factura eléctrica y mejorar tu instalación con mejores condiciones.
+              </p>
+            </div>
+            <a 
+              href="https://www.mejoradora.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex-shrink-0"
+            >
+              <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                Conocer Mejoradora
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Para quién es */}
       <ClientCards clients={clients} />
 
