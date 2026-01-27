@@ -14,6 +14,11 @@ import heroSolar from "@/assets/hero-solar.jpg";
 import heroEv from "@/assets/hero-ev.jpg";
 import heroClimate from "@/assets/hero-climate.jpg";
 import mejoradoraBg from "@/assets/mejoradora-bg.png";
+import bannerFaq from "@/assets/banner-faq.jpeg";
+import bannerContacto from "@/assets/banner-contacto.jpeg";
+import bannerPresentacion from "@/assets/banner-presentacion.jpeg";
+import imagenEnerta1 from "@/assets/imagen-enerta-1.jpeg";
+import imagenEnerta2 from "@/assets/imagen-enerta-2.jpeg";
 const services = [{
   title: "Instalaciones Eléctricas",
   description: "Obra nueva, reformas y mantenimiento integral.",
@@ -81,8 +86,8 @@ const whyChooseUs = [{
 }];
 const locations = ["Almería", "Roquetas de Mar", "El Ejido", "Vícar", "Vera", "Adra"];
 
-// Placeholder images for the carousel - will be replaced later
-const expertImages = [serviceSolar, serviceElectrical, serviceEv, serviceClimate, serviceEnergy, serviceSolar];
+// Carousel images with new photos
+const expertImages = [serviceSolar, serviceElectrical, serviceEv, serviceClimate, serviceEnergy, imagenEnerta1, imagenEnerta2, bannerFaq, bannerContacto, bannerPresentacion];
 const Index = () => {
   return <Layout>
       {/* Hero Section */}

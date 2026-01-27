@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, ClipboardCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/layout/Layout";
-import serviceElectrical from "@/assets/service-electrical.jpg";
+import bannerFaq from "@/assets/banner-faq.jpeg";
 const faqs = [{
   category: "General",
   questions: [{
@@ -83,7 +83,7 @@ const PreguntasFrecuentes = () => {
       {/* Hero with background image */}
       <section className="relative enerta-section overflow-hidden">
         <div className="absolute inset-0">
-          <img src={serviceElectrical} alt="Preguntas Frecuentes" className="w-full h-full object-cover" />
+          <img src={bannerFaq} alt="Preguntas Frecuentes" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-foreground/70" />
         </div>
         <div className="enerta-container relative z-10">

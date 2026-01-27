@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import Layout from "@/components/layout/Layout";
 import { useToast } from "@/hooks/use-toast";
-import serviceSolar from "@/assets/service-solar.jpg";
+import bannerContacto from "@/assets/banner-contacto.jpeg";
 const Contacto = () => {
   const {
     toast
@@ -60,7 +60,7 @@ const Contacto = () => {
       {/* Hero with background image */}
       <section className="relative enerta-section overflow-hidden">
         <div className="absolute inset-0">
-          <img src={serviceSolar} alt="Contacto Enerta Future" className="w-full h-full object-cover" />
+          <img src={bannerContacto} alt="Contacto Enerta Future" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-foreground/70" />
         </div>
         <div className="enerta-container relative z-10">

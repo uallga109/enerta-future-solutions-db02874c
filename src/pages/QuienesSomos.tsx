@@ -8,7 +8,12 @@ import serviceElectrical from "@/assets/service-electrical.jpg";
 import serviceEv from "@/assets/service-ev.jpg";
 import serviceClimate from "@/assets/service-climate.jpg";
 import serviceEnergy from "@/assets/service-energy.jpg";
-import heroImage from "@/assets/hero-enerta.jpg";
+import bannerPresentacion from "@/assets/banner-presentacion.jpeg";
+import imagenEnerta1 from "@/assets/imagen-enerta-1.jpeg";
+import imagenEnerta2 from "@/assets/imagen-enerta-2.jpeg";
+import bannerFaq from "@/assets/banner-faq.jpeg";
+import bannerContacto from "@/assets/banner-contacto.jpeg";
+import videoEnerta from "@/assets/video-enerta.mp4";
 const values = [{
   icon: Shield,
   title: "Profesionalidad",
@@ -65,14 +70,14 @@ const timeline = [{
   description: "Más de 15 años de experiencia ofreciendo soluciones integrales."
 }];
 
-// Placeholder images for the carousel - will be replaced later
-const teamImages = [serviceSolar, serviceElectrical, serviceEv, serviceClimate, serviceEnergy, serviceSolar];
+// Team carousel images with new photos
+const teamImages = [serviceSolar, serviceElectrical, serviceEv, serviceClimate, serviceEnergy, imagenEnerta1, imagenEnerta2, bannerFaq, bannerContacto, bannerPresentacion];
 const QuienesSomos = () => {
   return <Layout>
       {/* Hero */}
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImage} alt="Equipo Enerta" className="w-full h-full object-cover" />
+          <img src={bannerPresentacion} alt="Equipo Enerta" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/40" />
         </div>
         
@@ -146,8 +151,34 @@ const QuienesSomos = () => {
         </div>
       </section>
 
-      {/* Team Section with Carousel */}
+      {/* Video Section */}
       <section className="enerta-section">
+        <div className="enerta-container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-4">
+                Conoce nuestro trabajo
+              </h2>
+              <p className="text-muted-foreground">
+                Descubre cómo trabajamos y la calidad que ofrecemos en cada proyecto.
+              </p>
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-xl border border-border">
+              <video 
+                controls 
+                className="w-full aspect-video object-cover"
+                poster={bannerPresentacion}
+              >
+                <source src={videoEnerta} type="video/mp4" />
+                Tu navegador no soporta la reproducción de vídeos.
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section with Carousel */}
+      <section className="enerta-section bg-secondary/30">
         <div className="enerta-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 lg:order-1">
