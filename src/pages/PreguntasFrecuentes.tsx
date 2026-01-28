@@ -63,6 +63,9 @@ const faqs = [{
   }, {
     q: "¿Hacéis mantenimiento de equipos de climatización?",
     a: "Sí, ofrecemos servicio de mantenimiento preventivo y correctivo: limpieza de filtros, revisión de gas, reparaciones, etc."
+  }, {
+    q: "¿Qué ventajas tiene instalar una bomba de calor?",
+    a: "Las bombas de calor son muy eficientes: generan hasta 4 kW de calor por cada kW de electricidad consumido. Además, proporcionan calefacción en invierno y refrigeración en verano con un solo equipo, reduciendo costes y espacio."
   }]
 }, {
   category: "Instalaciones eléctricas",
