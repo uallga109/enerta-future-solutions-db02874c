@@ -71,7 +71,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Enerta Future <onboarding@resend.dev>",
+        from: "Enerta Future <noreply@enertafuture.es>",
         to: ["Info@enerta.es"],
         subject: `Nuevo contacto web: ${name}`,
         html: `
