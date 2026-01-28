@@ -3,6 +3,7 @@ import Layout from "@/components/layout/Layout";
 import logoGreenplug from "@/assets/logo-greenplug.webp";
 import logoPolicharger from "@/assets/logo-policharger.webp";
 import logoChargevite from "@/assets/logo-chargevite.webp";
+import bannerPartners from "@/assets/banner-presentacion.jpeg";
 
 const partners = [
   {
@@ -28,17 +29,21 @@ const partners = [
 const Partners = () => {
   return (
     <Layout>
-      {/* Hero */}
-      <section className="enerta-section bg-secondary/30">
-        <div className="enerta-container">
+      {/* Hero with background image */}
+      <section 
+        className="relative py-24 md:py-32 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bannerPartners})` }}
+      >
+        <div className="absolute inset-0 bg-foreground/70" />
+        <div className="enerta-container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary font-medium text-sm mb-4">
               Colaboradores
             </span>
-            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-foreground mb-6">
+            <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-6">
               Nuestros Partners
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-white/90">
               Trabajamos con los mejores fabricantes y distribuidores del sector para garantizar 
               la máxima calidad en todas nuestras instalaciones.
             </p>
