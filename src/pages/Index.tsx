@@ -99,9 +99,7 @@ const Index = () => {
         
         <div className="enerta-container relative z-10">
           <div className="max-w-3xl animate-slide-up">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-6 backdrop-blur-sm">
-              Almería y provincia · Desde 2006
-            </span>
+            
             <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6">
               Soluciones eléctricas y energéticas integrales en Almería
             </h1>
