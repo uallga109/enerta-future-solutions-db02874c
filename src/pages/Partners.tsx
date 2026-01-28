@@ -4,42 +4,32 @@ import logoGreenplug from "@/assets/logo-greenplug.webp";
 import logoPolicharger from "@/assets/logo-policharger.webp";
 import logoChargevite from "@/assets/logo-chargevite.webp";
 import bannerPartners from "@/assets/banner-presentacion.jpeg";
-
-const partners = [
-  {
-    name: "Green Plug",
-    description: "Empresa especializada en soluciones de carga para vehículos eléctricos, ofreciendo puntos de recarga inteligentes y eficientes para el hogar, empresas y espacios públicos.",
-    logo: logoGreenplug,
-    url: "https://www.greenplug.es/"
-  },
-  {
-    name: "Policharger",
-    description: "Fabricante líder de cargadores para vehículos eléctricos con tecnología avanzada, diseño innovador y opciones de conectividad para todo tipo de instalaciones.",
-    logo: logoPolicharger,
-    url: "https://policharger.com/"
-  },
-  {
-    name: "ChargeVite",
-    description: "Proveedor de infraestructura de carga rápida y ultrarrápida para vehículos eléctricos, con soluciones escalables para particulares, empresas y flotas.",
-    logo: logoChargevite,
-    url: "https://chargevite.com/"
-  }
-];
-
+const partners = [{
+  name: "Green Plug",
+  description: "Empresa especializada en soluciones de carga para vehículos eléctricos, ofreciendo puntos de recarga inteligentes y eficientes para el hogar, empresas y espacios públicos.",
+  logo: logoGreenplug,
+  url: "https://www.greenplug.es/"
+}, {
+  name: "Policharger",
+  description: "Fabricante líder de cargadores para vehículos eléctricos con tecnología avanzada, diseño innovador y opciones de conectividad para todo tipo de instalaciones.",
+  logo: logoPolicharger,
+  url: "https://policharger.com/"
+}, {
+  name: "ChargeVite",
+  description: "Proveedor de infraestructura de carga rápida y ultrarrápida para vehículos eléctricos, con soluciones escalables para particulares, empresas y flotas.",
+  logo: logoChargevite,
+  url: "https://chargevite.com/"
+}];
 const Partners = () => {
-  return (
-    <Layout>
+  return <Layout>
       {/* Hero with background image */}
-      <section 
-        className="relative py-24 md:py-32 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${bannerPartners})` }}
-      >
+      <section className="relative py-24 md:py-32 bg-cover bg-center bg-no-repeat" style={{
+      backgroundImage: `url(${bannerPartners})`
+    }}>
         <div className="absolute inset-0 bg-foreground/70" />
         <div className="enerta-container relative z-10">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-2 rounded-full bg-primary/20 text-primary font-medium text-sm mb-4">
-              Colaboradores
-            </span>
+            
             <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-6">
               Nuestros Partners
             </h1>
@@ -55,22 +45,11 @@ const Partners = () => {
       <section className="enerta-section">
         <div className="enerta-container">
           <div className="max-w-4xl mx-auto space-y-6">
-            {partners.map((partner) => (
-              <a
-                key={partner.name}
-                href={partner.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-card border border-border rounded-2xl p-8 hover:border-primary hover:shadow-lg transition-all duration-300"
-              >
+            {partners.map(partner => <a key={partner.name} href={partner.url} target="_blank" rel="noopener noreferrer" className="group block bg-card border border-border rounded-2xl p-8 hover:border-primary hover:shadow-lg transition-all duration-300">
                 <div className="flex flex-col md:flex-row items-center gap-8">
                   {/* Logo */}
                   <div className="w-full md:w-48 h-24 flex-shrink-0 flex items-center justify-center bg-white rounded-xl p-4">
-                    <img 
-                      src={partner.logo} 
-                      alt={partner.name} 
-                      className="max-w-full max-h-full object-contain"
-                    />
+                    <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain" />
                   </div>
                   
                   {/* Content */}
@@ -86,13 +65,10 @@ const Partners = () => {
                     </p>
                   </div>
                 </div>
-              </a>
-            ))}
+              </a>)}
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Partners;
